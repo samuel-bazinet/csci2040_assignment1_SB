@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.TableView.TableViewSelectionModel;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import javafx.collections.*;
@@ -20,6 +21,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        primaryStage.setTitle("Spam Detector");
 
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setInitialDirectory(new File("."));
@@ -182,8 +185,13 @@ public class Main extends Application {
         grid.add(labCurrentSpamFlag, 3, 2);
 
         border.setCenter(grid);
+        
+        BackgroundFill backFill = new BackgroundFill(Color.AZURE, CornerRadii.EMPTY, Insets.EMPTY);
+        Background background = new Background(backFill);
 
-        primaryStage.setScene(new Scene(border, 1000, 600));
+        border.setBackground(background);
+
+        primaryStage.setScene(new Scene(border, 1000, 600, Color.RED));
 
         primaryStage.show();
 

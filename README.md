@@ -28,6 +28,10 @@
 
 <p>
     3. The program will show the number of files, and how many of them are flagged as spam or as ham.
+</p>
+
+<p>
+    4. Made the background azure colored.
 </p> <br>
 
 <h2>How to run </h2>
