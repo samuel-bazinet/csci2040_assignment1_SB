@@ -1,11 +1,11 @@
-Test.java
- Test
-WordCounter.java
- WordCounter
-Train.java
- Train
 TestFile.java
  TestFile
 Main.java
  Main
  Main$1
+WordCounter.java
+ WordCounter
+Train.java
+ Train
+Test.java
+ Test

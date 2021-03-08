@@ -113,7 +113,7 @@ public class Main extends Application {
                 }
             }
         }
-
+        
         btnRecalculate.setOnAction(new EventHandler<ActionEvent>(){
             @Override
             public void handle(ActionEvent event) {
@@ -196,20 +196,28 @@ public class Main extends Application {
         primaryStage.show();
 
     }
-
+    /**
+     * getProbability gets all the info needed to make the listView 
+     * @param mainDirectory : The folder containing the "test" and "train" floders
+     * @return an ObservableList containing the testFiles
+     */
     private static ObservableList<TestFile> getProbability(File mainDirectory) {
         ObservableList<TestFile> probabilities = FXCollections.observableArrayList();
 
+        // We get the training data to use for later
         Map<String, Double> mapProbabilitySpamGivenHam = Train.getProbabilitySpamGivenHam(mainDirectory.getAbsolutePath());
 
+        // We go through every ham file and let the program determine whether or not they are spam and stick them into an observable list
         for (File file: new File(mainDirectory.getAbsolutePath() + "/test/ham").listFiles()) {
             probabilities.add(new TestFile(file.getName(), Test.calculateProbabilitySpam(file.getAbsolutePath(), mapProbabilitySpamGivenHam), "Ham"));
         }
 
+        // We go through every spam file and let the program determine whether or not they spam
         for (File file: new File(mainDirectory.getAbsolutePath() + "/test/spam").listFiles()) {
             probabilities.add(new TestFile(file.getName(), Test.calculateProbabilitySpam(file.getAbsolutePath(), mapProbabilitySpamGivenHam), "Spam"));
         }
 
+        // We return the observable lise
         return probabilities;
         
     }

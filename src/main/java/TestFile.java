@@ -8,6 +8,12 @@ public class TestFile {
     private String spamProbabilityRounded;
     private boolean flaggedSpam;
     
+    /**
+     * TestFile stores the info needed to test the effectiveness of the program 
+     * @param filename : the name of the text file
+     * @param spamProbability : the probability of being a spam
+     * @param actualClass : the actual class (spam or ham)
+     */
     public TestFile(String filename, double spamProbability, String actualClass) {
         this.filename = filename; 
         this.spamProbability = spamProbability; 
