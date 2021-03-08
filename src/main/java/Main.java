@@ -19,7 +19,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
-        Train.getProbabilitySpamGivenHam();
+        System.out.println(Test.calculateProbabilitySpam(System.getProperty("user.dir") + "/data/test/spam/00002.9438920e9a55591b18e60d1ed37d992b"));
 
     }
 

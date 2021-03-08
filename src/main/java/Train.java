@@ -22,11 +22,12 @@ public class Train {
                 continue;
             }
 
+            
+
             try {
                 double countHam = ham.get(key);
                 probabilitySpamGivenHam.put(key, (countSpam/(countSpam + countHam)));
-            } catch(NullPointerException e) {
-                //System.out.println(key + " is not in ham");
+            } catch (NullPointerException e) {
                 probabilitySpamGivenHam.put(key, 1.0d);
             } 
 			
