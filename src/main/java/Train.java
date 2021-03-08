@@ -1,11 +1,10 @@
-import java.io.*;
 import java.util.*;
 
 public class Train {
 
     private static Map<String, Double> probabilitySpamGivenHam;
 
-    public static void calculateProbabilitySpamGivenHam(Map<String, Double> spam, Map<String, Double> ham) {
+    private static void calculateProbabilitySpamGivenHam(Map<String, Double> spam, Map<String, Double> ham) {
 
         probabilitySpamGivenHam = new TreeMap<>();
 
@@ -35,14 +34,13 @@ public class Train {
 
     }
 
-    public static void train() {
+    private static void train(String path) {
         
         WordCounter spamWC = new WordCounter();
         WordCounter hamWC = new WordCounter();
-        String localDir = System.getProperty("user.dir");
-        spamWC.countWords(localDir + "/data/train/spam/", "outSpam");
-        hamWC.countWords(localDir + "/data/train/ham/", "outHam");
-        hamWC.countWords(localDir + "/data/train/ham2/", "outHam");
+        spamWC.countWords(path + "/train/spam/", "outSpam");
+        hamWC.countWords(path + "/train/ham/", "outHam");
+        hamWC.countWords(path + "/train/ham2/", "outHam");
 
         calculateProbabilitySpamGivenHam(spamWC.getProbability(), hamWC.getProbability());
 
@@ -59,8 +57,8 @@ public class Train {
 
     }
 
-    public static Map<String, Double> getProbabilitySpamGivenHam() {
-        train();
+    public static Map<String, Double> getProbabilitySpamGivenHam(String path) {
+        train(path);
         return probabilitySpamGivenHam;
     }
 }

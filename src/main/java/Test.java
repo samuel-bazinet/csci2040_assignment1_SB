@@ -1,14 +1,13 @@
-import java.lang.*;
 import java.io.*;
 import java.util.*;
 
 public class Test {
 
-    public static double calculateProbabilitySpam(String filePath) {
+    public static double calculateProbabilitySpam(String filePath, Map<String, Double> mapProbabilitySpamGivenHam) {
 
         try {
             String[] parsedFile = parseFile(new File(filePath));
-            return getProbabilitySpam(parsedFile);
+            return getProbabilitySpam(parsedFile, mapProbabilitySpamGivenHam);
         } catch(FileNotFoundException e){
 			System.err.println("Invalid input dir.");
 			e.printStackTrace();
@@ -20,11 +19,9 @@ public class Test {
         
     }
 
-    private static double getProbabilitySpam(String[] parsedFile) {
+    private static double getProbabilitySpam(String[] parsedFile, Map<String, Double> mapProbabilitySpamGivenHam) {
 
         double n = 0.0d;
-
-        Map<String, Double> mapProbabilitySpamGivenHam = Train.getProbabilitySpamGivenHam();
 
         for (String word: parsedFile) {
             
@@ -36,7 +33,7 @@ public class Test {
             }
         }
 
-        double out = (double)(1)/(double)(1.0+Math.pow(Math.E,n));
+        double out = (double)(1.0)/(double)(1.0+Math.pow(Math.E,n));
 
         return out;
     }

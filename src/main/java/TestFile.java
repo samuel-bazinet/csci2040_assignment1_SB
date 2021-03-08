@@ -1,13 +1,17 @@
 import java.text.DecimalFormat;
+
 public class TestFile {
+
     private String filename;
     private double spamProbability;
     private String actualClass;
+    private String spamProbabilityRounded;
     
     public TestFile(String filename, double spamProbability, String actualClass) {
         this.filename = filename; 
         this.spamProbability = spamProbability; 
         this.actualClass = actualClass; 
+        this.spamProbabilityRounded = this.getSpamProbRounded();
     }
 
     public String getFilename(){ 
@@ -21,6 +25,10 @@ public class TestFile {
     public String getSpamProbRounded(){ 
         DecimalFormat df = new DecimalFormat("0.00000"); 
         return df.format(this.spamProbability);
+    }
+
+    public String getSpamProbabilityRounded() {
+        return this.spamProbabilityRounded;
     }
 
     public String getActualClass(){
