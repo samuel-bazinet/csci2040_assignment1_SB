@@ -12,9 +12,11 @@
 
 <p>
     The program will also let the user see the total number of files, the number of flagged spam and ham messages, and will let the user change the cutoff at which the program will flag the messages.
-</p> <br>
+</p>
+<img src="Program_ran.png" alt="Program being ran">
+<br>
 
-<h2>Improvements over base instructions<h2>
+<h2>Improvements over base instructions</h2>
 
 <p>
     1. The tableview will have dynamic flagging: it shows which files are flagged by the cutoff.
