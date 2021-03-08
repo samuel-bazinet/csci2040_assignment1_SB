@@ -6,12 +6,14 @@ public class TestFile {
     private double spamProbability;
     private String actualClass;
     private String spamProbabilityRounded;
+    private boolean flaggedSpam;
     
     public TestFile(String filename, double spamProbability, String actualClass) {
         this.filename = filename; 
         this.spamProbability = spamProbability; 
         this.actualClass = actualClass; 
         this.spamProbabilityRounded = this.getSpamProbRounded();
+        this.flaggedSpam = (spamProbability > 0.5);
     }
 
     public String getFilename(){ 
@@ -35,6 +37,14 @@ public class TestFile {
         return this.actualClass;
     }
 
+    public boolean getFlaggedSpam() {
+        return this.flaggedSpam;
+    }
+
+    public String getFlaggedSpamString() {
+        return String.valueOf(this.flaggedSpam);
+    }
+
     public void setFilename(String value) { 
         this.filename = value; 
     }
@@ -45,5 +55,9 @@ public class TestFile {
 
     public void setActualClass(String value){
         this.actualClass=value; 
+    }
+
+    public void setFlaggedSpam(boolean flagged) {
+        this.flaggedSpam = flagged;
     }
 }
