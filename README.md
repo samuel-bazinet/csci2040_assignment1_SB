@@ -31,7 +31,11 @@
 </p>
 
 <p>
-    4. Made the background azure colored.
+    4. Does not count the small words since they tend to be present in both typed of messages, thus increasing accuracy.
+</p>
+
+<p>
+    5. Made the background azure colored.
 </p> <br>
 
 <h2>How to run </h2>

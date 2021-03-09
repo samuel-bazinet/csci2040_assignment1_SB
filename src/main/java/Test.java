@@ -119,7 +119,7 @@ public class Test {
     private static boolean isValidWord(String word){
 		String allLetters = "^[a-zA-Z]+$";
 		// returns true if the word is composed by only letters otherwise returns false;
-		return word.matches(allLetters);
+		return (word.matches(allLetters) && word.length() > 3);
 			
 	}
 
